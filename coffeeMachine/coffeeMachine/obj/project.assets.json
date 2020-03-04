@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/coffeeMachine.csproj",
+      "projectUniqueName": "/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/coffeeMachine.csproj",
       "projectName": "coffeeMachine",
-      "projectPath": "/Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/coffeeMachine.csproj",
+      "projectPath": "/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/coffeeMachine.csproj",
       "packagesPath": "/Users/michelle.wong/.nuget/packages/",
-      "outputPath": "/Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/obj/",
+      "outputPath": "/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/michelle.wong/.config/NuGet/NuGet.Config"

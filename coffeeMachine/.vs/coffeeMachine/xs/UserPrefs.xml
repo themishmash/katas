@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{3970C69E-E8E5-4659-996B-BD88E6A06013}|Default">
   <MonoDevelop.Ide.ItemProperties.coffeeMachine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/Drink.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/Program.cs">
     <Files>
       <File FileName="coffeeMachine/Program.cs" Line="89" Column="1" />
-      <File FileName="coffeeMachine/Order.cs" Line="39" Column="10" />
       <File FileName="coffeeMachine/DrinkType.cs" Line="16" Column="1" NotebookId="1" />
-      <File FileName="coffeeMachine/OrderMachine.cs" Line="53" Column="73" NotebookId="1" />
+      <File FileName="coffeeMachine/OrderMachine.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

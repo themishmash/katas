@@ -18,3 +18,13 @@
 /Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.AssemblyInfo.cs
 /Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.dll
 /Users/michelle.wong/FMA/kata/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.pdb
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/bin/Debug/netcoreapp3.1/coffeeMachine.deps.json
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/bin/Debug/netcoreapp3.1/coffeeMachine.runtimeconfig.json
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/bin/Debug/netcoreapp3.1/coffeeMachine.runtimeconfig.dev.json
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/bin/Debug/netcoreapp3.1/coffeeMachine.dll
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/bin/Debug/netcoreapp3.1/coffeeMachine.pdb
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.csprojAssemblyReference.cache
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.AssemblyInfoInputs.cache
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.AssemblyInfo.cs
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.dll
+/Users/michelle.wong/FMA/katas/coffeeMachine/coffeeMachine/obj/Debug/netcoreapp3.1/coffeeMachine.pdb
