@@ -9,7 +9,8 @@ namespace coffeeMachine
         {
             Coffee,
             Tea,
-            HotChoc
+            HotChoc,
+            Orange
         }
     
 }

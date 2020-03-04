@@ -39,23 +39,30 @@ namespace coffeeMachine
     public class OrderMachine
     {
 
-       
+
         //Constructor. In the constructor - calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
-        public Drink PlaceOrder(DrinkType drinktype, int sugar, decimal price){
+        public Drink PlaceOrder(DrinkType drinktype, int sugar, decimal price)
+        {
 
-            return new Drink(drinktype, sugar, "", price);
+            return new Drink(drinktype, sugar, "", "", price);
 
             //eg can have method to calculate order type/amount
 
         }
 
-        public Drink PlaceOrder(DrinkType drinktype, int sugar, string message, decimal price)
+        public Drink PlaceOrder(DrinkType drinktype, int sugar, string temp, string message, decimal price)
         {
-            return new Drink(drinktype, sugar, message, price);
+            return new Drink(drinktype, sugar, temp, message, price);
+        }
+
+        public decimal GetBalance(decimal price, decimal money)
+        {
+            return money - price;
         }
 
 
+        
 
         //This returns true or false - this has been moved to Order.cs and can no longer be bool 
         //public static bool needsStick(int sugar)
