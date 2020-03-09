@@ -1,14 +1,25 @@
 ﻿//First iteration - Making drinks
 //In this iteration, your task is to implement the logic (starting from a simple class) that translates orders from customers of the coffee machine to the drink maker.Your code will use the drink maker protocol(see below) to send commands to the drink maker.
 
+using System.Collections.Generic;
+
 namespace coffeeMachine
 {
-    
+
+
+
     //This is the actual drink class. Represents beverage. Doesn't show to user
+
+    
+
 
     public class Drink
         
     {
+
+        
+
+
         //best practise to have private and public
         //private propertie for class use underscore. 
 
@@ -31,8 +42,25 @@ namespace coffeeMachine
         //private decimal internalMoneyAmount;
 
         public decimal Price { get; }
-    
+
+
+
+
         
+
+
+
+        //public static void totalCost()
+        //{
+        //    foreach (Drink drink in drinkList)
+        //    {
+        //        Console.WriteLine(drinkList.Price);
+        //    }
+        //}
+
+
+
+
 
 
         public Drink (DrinkType drinkType, int sugar, string temp, string message, decimal price)
@@ -65,12 +93,7 @@ namespace coffeeMachine
         }
 
 
-        //private string ExtraHot (bool hot)
-        //{
-        //    if (hot == true)
-        //        return "h";
-        //    return "";
-        //}
+   
 
 
 

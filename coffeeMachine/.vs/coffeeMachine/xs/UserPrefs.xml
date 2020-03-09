@@ -1,18 +1,19 @@
 ﻿<Properties StartupConfiguration="{3970C69E-E8E5-4659-996B-BD88E6A06013}|Default">
   <MonoDevelop.Ide.ItemProperties.coffeeMachine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/Drink.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/Coffee.cs">
     <Files>
-      <File FileName="coffeeMachine/Program.cs" Line="149" Column="75" />
-      <File FileName="coffeeMachine/DrinkType.cs" Line="16" Column="1" NotebookId="1" />
-      <File FileName="coffeeMachine/OrderMachine.cs" NotebookId="1" />
-      <File FileName="coffeeMachine/Drink.cs" Line="45" Column="49" NotebookId="1" />
+      <File FileName="coffeeMachine/Program.cs" Line="114" Column="1" />
+      <File FileName="coffeeMachine/Coffee.cs" Line="1" Column="1" />
+      <File FileName="coffeeMachine/DrinkType.cs" Line="16" Column="2" NotebookId="1" />
+      <File FileName="coffeeMachine/OrderMachine.cs" Line="51" Column="5" NotebookId="1" />
+      <File FileName="coffeeMachine/Drink.cs" Line="49" Column="9" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="coffeeMachine" expanded="True">
             <Node name="coffeeMachine" expanded="True">
-              <Node name="Drink.cs" selected="True" />
+              <Node name="Coffee.cs" selected="True" />
             </Node>
           </Node>
         </State>

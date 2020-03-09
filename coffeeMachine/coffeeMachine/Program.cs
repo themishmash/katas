@@ -1,7 +1,7 @@
 ﻿using System;
 //using System.Net;
 //using coffeeMachine;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace coffeeMachine
 {
@@ -22,7 +22,6 @@ namespace coffeeMachine
 
             //tea.GetDetails();
 
-
             //var drinkmaker = new DrinkMaker();
             //var order = drinkmaker.PlaceOrder(DrinkType.Tea, 3);
 
@@ -38,98 +37,117 @@ namespace coffeeMachine
         public static void processDrinks()
 
         {
-            Console.WriteLine("What drink do you want?");
-            Console.WriteLine("1. Coffee");
-            Console.WriteLine("2. Tea");
-            Console.WriteLine("3. Chocolate");
-            Console.WriteLine("4. Orange Juice");
-            string drinkInput = Console.ReadLine();
-
-            int drinkSelection;
-            if (!Int32.TryParse(drinkInput, out drinkSelection))
+            while (true)
             {
-                Console.WriteLine("Please enter a number");
-            }
-
-            //Only ask sugars if it is c, t, hc
-            int sugarInt = 0;
-            string tempInput = string.Empty;
-            if (drinkSelection != 4)
-            {
-                Console.WriteLine("How many sugars would you like?");
-                string sugarInput = Console.ReadLine();
 
 
-                if (!Int32.TryParse(sugarInput, out sugarInt))
+                Console.WriteLine("What drink do you want?");
+                Console.WriteLine("1. Coffee");
+                Console.WriteLine("2. Tea");
+                Console.WriteLine("3. Chocolate");
+                Console.WriteLine("4. Orange Juice");
+                string drinkInput = Console.ReadLine();
+
+                int drinkSelection;
+                if (!Int32.TryParse(drinkInput, out drinkSelection))
                 {
-                    Console.WriteLine("Please enter a number!");
+                    Console.WriteLine("Please enter a number");
                 }
 
-                //Only asks about extra hot if it is c, t, hc
-                Console.WriteLine("Would you like it to be extra hot? Y/N");
-                tempInput = Console.ReadLine();
+                //Only ask sugars and if want extra hot if it is c, t, hc
+                int sugarInt = 0;
+                string tempInput = string.Empty;
+                if (drinkSelection != 4)
+                {
+                    Console.WriteLine("How many sugars would you like?");
+                    string sugarInput = Console.ReadLine();
+
+
+                    if (!Int32.TryParse(sugarInput, out sugarInt))
+                    {
+                        Console.WriteLine("Please enter a number!");
+                    }
+
+                    //Only asks about extra hot if it is c, t, hc
+                    Console.WriteLine("Would you like it to be extra hot? Y/N");
+                    tempInput = Console.ReadLine().ToUpper();
+
+                }
+
+
+
+                const decimal CoffeePrice = 0.6M;
+                const decimal TeaPrice = 0.4M;
+                const decimal ChocPrice = 0.5M;
+                const decimal OrangePrice = 0.6M;
+
+                //Initialize new OrderMachine object
+                var ordermachine = new OrderMachine();
+
+                //say drinktype
+                DrinkType drinktype = (DrinkType)(drinkSelection) - 1;
+                var price = 0M;
+                switch (drinktype)
+                {
+                    case DrinkType.Coffee:
+                        price = CoffeePrice;
+                        break;
+
+                    case DrinkType.Tea:
+                        price = TeaPrice;
+                        break;
+
+                    case DrinkType.HotChoc:
+                        price = ChocPrice;
+                        break;
+
+                    case DrinkType.Orange:
+                        price = OrangePrice;
+                        break;
+                        //default:
+                        //    break;
+                }
+
+                //giving properties to new object
+                var order = ordermachine.PlaceOrder(drinktype, sugarInt, tempInput, "", price);
+
+
+
+
+                Console.WriteLine("How much money do you have?");
+                string moneyInput = Console.ReadLine();
+
+                decimal moneyAmount;
+                if (!decimal.TryParse(moneyInput, out moneyAmount))
+                {
+                    Console.WriteLine("Please enter a number");
+                }
+
+                //This prints out the price of the drink
+                Console.WriteLine($"The total cost for {drinktype} is {order.Price} Euros"); //0.6
+
+
+                var balance = ordermachine.GetBalance(order.Price, moneyAmount);
+                var message = GetDrinkMessage(order, balance);
+
+
+                Console.WriteLine(message);
+                Console.WriteLine($"The total order count so far is {OrderMachine.DrinkCount}");
+
+
+                OrderMachine.AddDrink(order);
+
+                //CONNECTED TO LIST IN ORDERMACHINE.CS
+                Console.WriteLine($"The drinks total is {OrderMachine.numberOfdrinks}");
+
+
+                
+
+
+
+                Console.WriteLine("______________________________");
+
             }
-
-
-            
-
-            
-
-            const decimal CoffeePrice = 0.6M;
-            const decimal TeaPrice = 0.4M;
-            const decimal ChocPrice = 0.5M;
-            const decimal OrangePrice = 0.6M;
-
-            //Initialize new OrderMachine object
-            var ordermachine = new OrderMachine();
-
-            //say drinktype
-            DrinkType drinktype = (DrinkType)(drinkSelection) - 1;
-            var price = 0M;
-            switch(drinktype)
-            {
-                case DrinkType.Coffee:
-                    price = CoffeePrice;
-                    break;
-
-                case DrinkType.Tea:
-                    price = TeaPrice;
-                    break;
-
-                case DrinkType.HotChoc:
-                    price = ChocPrice;
-                    break;
-
-                case DrinkType.Orange:
-                    price = OrangePrice;
-                    break;
-                //default:
-                //    break;
-            }
-
-            //giving properties to new object
-            var order = ordermachine.PlaceOrder(drinktype, sugarInt, tempInput, "", price);
-
-
-            Console.WriteLine("How much money do you have?");
-            string moneyInput = Console.ReadLine();
-
-            decimal moneyAmount;
-            if (!decimal.TryParse(moneyInput, out moneyAmount))
-            {
-                Console.WriteLine("Please enter a number");
-            }
-
-            //This prints out the price of the drink
-            Console.WriteLine($"The total cost for {drinktype} is {order.Price}"); //0.6
-
-       
-            var balance = ordermachine.GetBalance(order.Price, moneyAmount);
-            var message = GetDrinkMessage(order, balance);
-
-
-            Console.WriteLine(message);
-
         }
 
 
@@ -200,6 +218,8 @@ namespace coffeeMachine
 
         }
 
-        
+
+    
+
     }
 }
