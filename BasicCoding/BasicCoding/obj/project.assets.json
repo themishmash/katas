@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/BasicCoding.csproj",
+      "projectUniqueName": "/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/BasicCoding.csproj",
       "projectName": "BasicCoding",
-      "projectPath": "/Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/BasicCoding.csproj",
+      "projectPath": "/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/BasicCoding.csproj",
       "packagesPath": "/Users/michelle.wong/.nuget/packages/",
-      "outputPath": "/Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/obj/",
+      "outputPath": "/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/michelle.wong/.config/NuGet/NuGet.Config"

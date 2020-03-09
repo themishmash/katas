@@ -11,7 +11,17 @@ namespace BasicCoding
 
             //BasicCoding.NumberCount();
 
-            BasicCoding.Mult3or5();
+            //BasicCoding.NumberAdd();
+
+            //BasicCoding.Mult3or5();
+
+            //BasicCoding.AddOrMult();
+
+            //BasicCoding.MultTable();
+
+            //BasicCoding.GuessGame();
+
+            BasicCoding.LeapYear();
         }
     }
 }

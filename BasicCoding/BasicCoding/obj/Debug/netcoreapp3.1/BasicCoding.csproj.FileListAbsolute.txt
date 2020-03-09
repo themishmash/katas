@@ -8,3 +8,13 @@
 /Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.AssemblyInfo.cs
 /Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.dll
 /Users/michelle.wong/FMA/kata/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.pdb
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/bin/Debug/netcoreapp3.1/BasicCoding.deps.json
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/bin/Debug/netcoreapp3.1/BasicCoding.runtimeconfig.json
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/bin/Debug/netcoreapp3.1/BasicCoding.runtimeconfig.dev.json
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/bin/Debug/netcoreapp3.1/BasicCoding.dll
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/bin/Debug/netcoreapp3.1/BasicCoding.pdb
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.csprojAssemblyReference.cache
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.AssemblyInfoInputs.cache
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.AssemblyInfo.cs
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.dll
+/Users/michelle.wong/FMA/katas/BasicCoding/BasicCoding/obj/Debug/netcoreapp3.1/BasicCoding.pdb
