@@ -1,0 +1,10 @@
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/bin/Debug/netcoreapp3.1/FizzBuzz.deps.json
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/bin/Debug/netcoreapp3.1/FizzBuzz.runtimeconfig.json
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/bin/Debug/netcoreapp3.1/FizzBuzz.runtimeconfig.dev.json
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/bin/Debug/netcoreapp3.1/FizzBuzz.dll
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/bin/Debug/netcoreapp3.1/FizzBuzz.pdb
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/obj/Debug/netcoreapp3.1/FizzBuzz.csprojAssemblyReference.cache
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/obj/Debug/netcoreapp3.1/FizzBuzz.AssemblyInfoInputs.cache
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/obj/Debug/netcoreapp3.1/FizzBuzz.AssemblyInfo.cs
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/obj/Debug/netcoreapp3.1/FizzBuzz.dll
+/Users/michelle.wong/FMA/katas/FizzBuzz/FizzBuzz/obj/Debug/netcoreapp3.1/FizzBuzz.pdb
