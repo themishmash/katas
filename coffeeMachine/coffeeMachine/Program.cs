@@ -37,6 +37,9 @@ namespace coffeeMachine
         public static void processDrinks()
 
         {
+            //Initialize new OrderMachine object
+            var ordermachine = new OrderMachine();
+
             while (true)
             {
 
@@ -81,8 +84,7 @@ namespace coffeeMachine
                 const decimal ChocPrice = 0.5M;
                 const decimal OrangePrice = 0.6M;
 
-                //Initialize new OrderMachine object
-                var ordermachine = new OrderMachine();
+                
 
                 //say drinktype
                 DrinkType drinktype = (DrinkType)(drinkSelection) - 1;
@@ -132,14 +134,15 @@ namespace coffeeMachine
 
 
                 Console.WriteLine(message);
-                Console.WriteLine($"The total order count so far is {OrderMachine.DrinkCount}");
+                Console.WriteLine($"The total order count so far is {ordermachine.GetDrinkCount()}");
+
+                Console.WriteLine($"The total cost so far is: {ordermachine.GetTotalCost()}");
 
 
-                OrderMachine.AddDrink(order);
-
-                //CONNECTED TO LIST IN ORDERMACHINE.CS
-                Console.WriteLine($"The drinks total is {OrderMachine.numberOfdrinks}");
-
+                Console.WriteLine($"Total coffee order: {ordermachine.GetCoffeeCount()}");
+                Console.WriteLine($"Total Tea order: {ordermachine.GetTeaCount()}");
+                Console.WriteLine($"Total Chocolate order: {ordermachine.GetChocCount()}");
+                Console.WriteLine($"Total Orange order: {ordermachine.GetOrangeCount()}");
 
                 
 
@@ -153,33 +156,7 @@ namespace coffeeMachine
 
     //not using this method - using the GetDrinkMessage one instead
 
-        private static string GetDrink(Drink order)
-        {
-            //Allows sugar to return nothing
-            var sugarOutput = order.Sugar > 0 ? order.Sugar.ToString() : string.Empty;
-
-            string drinktype = string.Empty; //need to assign / initialize first the variable otherwise error
-
-            
-
-            switch (order.DrinkType)
-            {
-                case DrinkType.Tea:
-                    drinktype = "T";
-                    break;
-                case DrinkType.Coffee:
-                    drinktype = "C";
-                    break;
-                case DrinkType.HotChoc:
-                    drinktype = "H";
-                    break;
-                    
-            }
-            //if testing - woudl do it to the the string itself
-            return ($"{drinktype}:{sugarOutput}:{order.Stick}");
-        }
-
-
+        
         
         private static string GetDrinkMessage (Drink order, decimal balance)
         {

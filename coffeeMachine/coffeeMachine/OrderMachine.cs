@@ -18,53 +18,34 @@ namespace coffeeMachine
     public class OrderMachine
     {
 
-        public static int DrinkCount = 0;
-
-        public OrderMachine ()
-        {
-            DrinkCount++;
-        }
+        private int _drinkCount;
 
 
+        private decimal _totalCost;
 
-        //MAKING IT INTO LIST?
-        public static List<Drink> drinkList = new List<Drink>();
+        //count of drinks
+        private int _coffeeCount;
+        private int _teaCount;
+        private int _chocCount;
+        private int _orangeCount;
 
-        public static void AddDrink(Drink drink)
-
-        {
-            drinkList.Add(drink);
-
-        }
-
-        public static int numberOfdrinks
-        {
-            get
-            {
-                return drinkList.Count;
-            }
-        }
-
-        
-        
-
-    
+        //starting stock of drinks
+        private int _coffeeStock = 10;
+        private int _teaStock = 10;
+        private int _chocStock = 10;
+        private int _orangeStock = 10;
 
 
+        //Constructor. In the constructor - calling DrinkType from DrinkType File)
+        //can have more logic later on by putting this PlaceOrder method here
 
-    //Constructor. In the constructor - calling DrinkType from DrinkType File)
-    //can have more logic later on by putting this PlaceOrder method here
-    public Drink PlaceOrder(DrinkType drinktype, int sugar, decimal price)
-        {
-
-            return new Drink(drinktype, sugar, "", "", price);
-
-            //eg can have method to calculate order type/amount
-
-        }
 
         public Drink PlaceOrder(DrinkType drinktype, int sugar, string temp, string message, decimal price)
         {
+            //adding the drinkcount 
+            _drinkCount++;
+            _totalCost += price;
+            SaveOrder(drinktype);
             return new Drink(drinktype, sugar, temp, message, price);
         }
 
@@ -73,21 +54,87 @@ namespace coffeeMachine
             return money - price;
         }
 
+        public int GetDrinkCount()
+        {
+            return _drinkCount;
+        }
 
-        
-
-        //This returns true or false - this has been moved to Order.cs and can no longer be bool 
-        //public static bool needsStick(int sugar)
-
-        //{
-
-        //    return sugar > 0;
-        //}
+        public decimal GetTotalCost()
+        {
+            return _totalCost;
+        }
 
 
+        public int GetCoffeeCount()
+        {
+            
+            return _coffeeCount;
+        }
+
+        public int GetTeaCount()
+        {
+            return _teaCount;
+        }
+
+        public int GetChocCount()
+        {
+            return _chocCount;
+        }
+
+        public int GetOrangeCount()
+        {
+            return _orangeCount;
+        }
+
+
+
+        private void SaveOrder(DrinkType drinkType)
+        {
+            switch (drinkType)
+            {
+                case DrinkType.Tea:
+                    
+                    _teaCount++;
+                    
+                    break;
+                case DrinkType.Coffee:
+                  
+                    _coffeeCount++;
+                    break;
+                case DrinkType.HotChoc:
+                    
+                    _chocCount++;
+                    break;
+                case DrinkType.Orange:
+                    
+                    _orangeCount++;
+                    break;
+
+            }
+        }   
 
 
     }
 
 
 }
+
+
+//public interface IA
+//{
+//    void SaveOrder();
+//    int GetOrder();
+//}
+
+//public class A : IA
+//{
+//    public void SaveOrder()
+//    {
+//        //
+//    }
+
+//    public int GetOrder()
+//    {
+//        return 0;
+//    }
+//}

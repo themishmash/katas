@@ -80,7 +80,7 @@ namespace BasicCoding
         //Write a program that asks the user for a number n and prints the sum of the numbers 1 to n if the number is a multiple of three or five, e.g. 3, 5, 6, 9, 10, 12, 15 for n= 17
         public static void Mult3or5()
         {
-            int sum = 0; //why not work with null?
+            int sum; //by default it will be 0
             Console.WriteLine("Please input a number");
             string userNumber = Console.ReadLine();
             int number;

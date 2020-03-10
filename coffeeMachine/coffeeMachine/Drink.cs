@@ -72,13 +72,6 @@ namespace coffeeMachine
             Price = price;
         }
 
-        public Drink(DrinkType drinkType, string message, decimal price)
-        {
-            DrinkType = drinkType;
-            Message = message;
-            Price = price;
-        }
-
 
 
         //only used here so it is private function

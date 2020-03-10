@@ -1,15 +1,14 @@
-﻿<Properties StartupConfiguration="{6E94DEA8-D4BF-4F86-A714-9C538A9397E3}|Default">
-  <MonoDevelop.Ide.ItemProperties.FizzBuzz PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FizzBuzz/Solution.cs">
+﻿<Properties StartupConfiguration="{0B18CF0B-A2DC-4E99-AA18-D1E350D55512}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ABCKata/Solution.cs">
     <Files>
-      <File FileName="FizzBuzz/Program.cs" Line="9" Column="15" />
-      <File FileName="FizzBuzz/Solution.cs" Line="36" Column="18" />
+      <File FileName="ABCKata/Program.cs" Line="11" Column="32" />
+      <File FileName="ABCKata/Solution.cs" Line="61" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FizzBuzz" expanded="True">
-            <Node name="FizzBuzz" expanded="True">
+          <Node name="ABCKata" expanded="True">
+            <Node name="ABCKata" expanded="True">
               <Node name="Solution.cs" selected="True" />
             </Node>
           </Node>
@@ -23,4 +22,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ABCKata FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
