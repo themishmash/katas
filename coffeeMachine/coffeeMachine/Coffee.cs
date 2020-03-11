@@ -1,11 +1,13 @@
-﻿//using System;
-//namespace coffeeMachine
-//{
-//    public class Coffee:Drink
-//    {
-//        public Coffee(DrinkType drinkType, int sugar, string message) : base( drinkType, sugar, message)
-//        {
-//            Price = 0.4M;
-//        }
-//    }
-//}
+﻿using System;
+namespace coffeeMachine
+{
+    public class Coffee : Drink
+    {
+        public override decimal Price { get { return 0.4M;  } }
+
+        public Coffee(DrinkType drinkType, int sugarLevel, bool isExtraHot) : base(drinkType, sugarLevel, isExtraHot)
+        {
+            
+        }
+    }
+}

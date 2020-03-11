@@ -6,7 +6,7 @@ namespace ABCKata
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
 
             ABCKata.Solution();
         }

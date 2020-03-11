@@ -40,13 +40,25 @@ namespace coffeeMachine
         //can have more logic later on by putting this PlaceOrder method here
 
 
-        public Drink PlaceOrder(DrinkType drinktype, int sugar, string temp, string message, decimal price)
+        public Drink PlaceOrder(DrinkType drinktype, int sugar, string isExtraHotInput)
         {
             //adding the drinkcount 
             _drinkCount++;
-            _totalCost += price;
+            //_totalCost += price;
             SaveOrder(drinktype);
-            return new Drink(drinktype, sugar, temp, message, price);
+            SaveStock(drinktype);
+            switch (drinktype)
+            {
+                case DrinkType.Coffee:
+                    return new Coffee(drinktype, sugar, IsExtraHot(isExtraHotInput));
+
+                    //can return for any case - if not coffee. don't need this if have all the drinks. 
+                default:
+                    return null;
+
+            }
+
+            //return new Drink(drinktype, sugar, temp, message, price);
         }
 
         public decimal GetBalance(decimal price, decimal money)
@@ -69,6 +81,7 @@ namespace coffeeMachine
         {
             
             return _coffeeCount;
+            
         }
 
         public int GetTeaCount()
@@ -86,7 +99,25 @@ namespace coffeeMachine
             return _orangeCount;
         }
 
+        public int GetCoffeeStock()
+        {
+            return _coffeeStock;
+        }
 
+        public int GetTeaStock()
+        {
+            return _teaStock;
+        }
+
+        public int GetChocStock()
+        {
+            return _chocStock;
+        }
+
+        public int GetOrangeStock()
+        {
+            return _orangeStock;
+        }
 
         private void SaveOrder(DrinkType drinkType)
         {
@@ -111,8 +142,40 @@ namespace coffeeMachine
                     break;
 
             }
-        }   
+        }
 
+
+        private void SaveStock(DrinkType drinkType)
+        {
+            switch (drinkType)
+            {
+                case DrinkType.Tea:
+
+                    _teaStock--;
+
+                    break;
+                case DrinkType.Coffee:
+
+                    _coffeeStock--;
+                    break;
+                case DrinkType.HotChoc:
+
+                    _chocStock--;
+                    break;
+                case DrinkType.Orange:
+
+                    _orangeStock--;
+                    break;
+
+            }
+        }
+
+        private bool IsExtraHot(string input)
+        {
+            return input.ToUpper() == "Y";
+        }
+
+        
 
     }
 

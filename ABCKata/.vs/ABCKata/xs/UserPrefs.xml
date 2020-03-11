@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{0B18CF0B-A2DC-4E99-AA18-D1E350D55512}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ABCKata/Solution.cs">
     <Files>
-      <File FileName="ABCKata/Program.cs" Line="11" Column="32" />
-      <File FileName="ABCKata/Solution.cs" Line="61" Column="1" />
+      <File FileName="ABCKata/Program.cs" Line="9" Column="12" />
+      <File FileName="ABCKata/Solution.cs" Line="51" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,5 +22,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.ABCKata FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.ABCKata PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

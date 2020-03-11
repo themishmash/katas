@@ -26,22 +26,23 @@ namespace coffeeMachine
         //Properties
         public DrinkType DrinkType { get; }
 
-        public int Sugar { get;  }
+        public int SugarLevel { get;  }
 
-        public string Temp { get; }
+        public bool IsExtraHot { get; }
 
-        public string Stick
+        //made boolean
+        public bool Stick
         {
             get
             {
-                return GetStick(Sugar);
+                return GetStick(SugarLevel);
             }
         }
-        public string Message { get; }
+        //public string Message { get; }
 
-        //private decimal internalMoneyAmount;
 
-        public decimal Price { get; }
+       //if make virtual - children can override
+        public virtual decimal Price { get; }
 
 
 
@@ -62,27 +63,21 @@ namespace coffeeMachine
 
 
 
-
-        public Drink (DrinkType drinkType, int sugar, string temp, string message, decimal price)
+//Constructor
+        public Drink (DrinkType drinkType, int sugarLevel, bool isExtraHot)
         {
             DrinkType = drinkType;
-            Sugar = sugar;
-            Temp = temp;
-            Message = message;
-            Price = price;
+            SugarLevel = sugarLevel;
+            IsExtraHot = isExtraHot;
+           
         }
 
 
 
         //only used here so it is private function
-        private string GetStick(int sugar)
+        private bool GetStick(int sugarLevel)
         {
-            if (sugar > 0)
-
-                return "0";
-
-            return "";
-
+            return sugarLevel > 0;
         }
 
 

@@ -37,7 +37,8 @@ namespace coffeeMachine
         public static void processDrinks()
 
         {
-            //Initialize new OrderMachine object
+            //Initialize new OrderMachine object. This has to be outside of the while loop otherwise it will keep resetting the cost and number of drinks to 0.
+            //so only one ordermachine 
             var ordermachine = new OrderMachine();
 
             while (true)
@@ -79,43 +80,43 @@ namespace coffeeMachine
 
 
 
-                const decimal CoffeePrice = 0.6M;
-                const decimal TeaPrice = 0.4M;
-                const decimal ChocPrice = 0.5M;
-                const decimal OrangePrice = 0.6M;
+                //const decimal CoffeePrice = 0.6M;
+                //const decimal TeaPrice = 0.4M;
+                //const decimal ChocPrice = 0.5M;
+                //const decimal OrangePrice = 0.6M;
 
-                
+
+                //Don't need it as in the class
 
                 //say drinktype
                 DrinkType drinktype = (DrinkType)(drinkSelection) - 1;
-                var price = 0M;
-                switch (drinktype)
-                {
-                    case DrinkType.Coffee:
-                        price = CoffeePrice;
-                        break;
+                //var price = 0M;
+                //switch (drinktype)
+                //{
+                //    case DrinkType.Coffee:
+                //        price = CoffeePrice;
+                //        break;
 
-                    case DrinkType.Tea:
-                        price = TeaPrice;
-                        break;
+                //    case DrinkType.Tea:
+                //        price = TeaPrice;
+                //        break;
 
-                    case DrinkType.HotChoc:
-                        price = ChocPrice;
-                        break;
+                //    case DrinkType.HotChoc:
+                //        price = ChocPrice;
+                //        break;
 
-                    case DrinkType.Orange:
-                        price = OrangePrice;
-                        break;
-                        //default:
-                        //    break;
-                }
+                //    case DrinkType.Orange:
+                //        price = OrangePrice;
+                //        break;
+                //        //default:
+                //        //    break;
+                //}
 
                 //giving properties to new object
-                var order = ordermachine.PlaceOrder(drinktype, sugarInt, tempInput, "", price);
+                var order = ordermachine.PlaceOrder(drinktype, sugarInt, tempInput);
 
 
-
-
+                Console.WriteLine($"That will be {order.Price}");
                 Console.WriteLine("How much money do you have?");
                 string moneyInput = Console.ReadLine();
 
@@ -130,22 +131,28 @@ namespace coffeeMachine
 
 
                 var balance = ordermachine.GetBalance(order.Price, moneyAmount);
-                var message = GetDrinkMessage(order, balance);
+                //var message = GetDrinkMessage(order, balance);
 
 
-                Console.WriteLine(message);
-                Console.WriteLine($"The total order count so far is {ordermachine.GetDrinkCount()}");
+                //Console.WriteLine(message);
+                //Console.WriteLine($"The total order count so far is {ordermachine.GetDrinkCount()}");
 
-                Console.WriteLine($"The total cost so far is: {ordermachine.GetTotalCost()}");
+                //Console.WriteLine($"The total cost so far is: {ordermachine.GetTotalCost()}");
 
 
-                Console.WriteLine($"Total coffee order: {ordermachine.GetCoffeeCount()}");
-                Console.WriteLine($"Total Tea order: {ordermachine.GetTeaCount()}");
-                Console.WriteLine($"Total Chocolate order: {ordermachine.GetChocCount()}");
-                Console.WriteLine($"Total Orange order: {ordermachine.GetOrangeCount()}");
+                //Console.WriteLine($"Total coffee order: {ordermachine.GetCoffeeCount()}");
+                //Console.WriteLine($"Total Tea order: {ordermachine.GetTeaCount()}");
+                //Console.WriteLine($"Total Chocolate order: {ordermachine.GetChocCount()}");
+                //Console.WriteLine($"Total Orange order: {ordermachine.GetOrangeCount()}");
 
-                
+                //Console.WriteLine($"Coffee stock: {ordermachine.GetCoffeeStock()}");
+                //Console.WriteLine($"Tea stock: {ordermachine.GetTeaStock()}");
+                //Console.WriteLine($"Chocolate stock: {ordermachine.GetChocStock()}");
+                //Console.WriteLine($"Orange stock: {ordermachine.GetOrangeStock()}");
 
+
+
+                Console.WriteLine($"The balance is {balance}");
 
 
                 Console.WriteLine("______________________________");
@@ -158,42 +165,48 @@ namespace coffeeMachine
 
         
         
-        private static string GetDrinkMessage (Drink order, decimal balance)
-        {
+        //private static string GetDrinkMessage (Drink order, decimal balance)
+        //{
 
-            var sugarOutput = order.Sugar > 0 ? order.Sugar.ToString() : string.Empty;
+        //    //var sugarOutput = order.SugarLevel > 0 ? order.SugarLevel.ToString() : string.Empty;
 
-            var tempOutput = order.Temp == "Y" ? "h" : string.Empty;
+        //    //var hotOutput = order.IsExtraHot == "Y" ? "h" : string.Empty;
 
-            string drinktype = string.Empty; //need to assign / initialize first the variable otherwise error
+        //   // string drinktype = string.Empty; //need to assign / initialize first the variable otherwise error
 
-            //string msgNotEnough = "Not enough money here";
+        //    //int coffeeLevel = order.GetCoffeeCount();
+        //    //if (coffeeLevel == 0)
+        //    //{
+        //    //    Console.WriteLine("not enough");
+        //    //}
+
+        //    //string msgNotEnough = "Not enough money here";
             
 
-            switch (order.DrinkType)
-            {
-                case DrinkType.Tea:
-                    drinktype = "T";
-                    break;
-                case DrinkType.Coffee:
-                    drinktype = "C";
-                    break;
-                case DrinkType.HotChoc:
-                    drinktype = "H";
-                    break;
-                case DrinkType.Orange:
-                    drinktype = "O";
-                    break;
+        //    switch (order.DrinkType)
+        //    {
+        //        case DrinkType.Tea:
+        //            drinktype = "T";
+        //            break;
+        //        case DrinkType.Coffee:
+        //            drinktype = "C";
+        //            break;
+        //        case DrinkType.HotChoc:
+        //            drinktype = "H";
+        //            break;
+        //        case DrinkType.Orange:
+        //            drinktype = "O";
+        //            break;
 
-            }
+        //    }
 
-            var msg = string.Empty;
-            if (balance < 0)
-                msg = "you need to pay another " + System.Math.Abs(balance) + " Euros";
+        //    var msg = string.Empty;
+        //    if (balance < 0)
+        //        msg = "you need to pay another " + System.Math.Abs(balance) + " Euros";
 
-            return ($"{drinktype}{tempOutput}:{sugarOutput}:{order.Stick}:{msg}");
+        //    return ($"{drinktype}{hotOutput}:{sugarOutput}:{order.Stick}:{msg}");
 
-        }
+        //}
 
 
     
