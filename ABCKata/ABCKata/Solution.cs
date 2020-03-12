@@ -97,8 +97,11 @@ namespace ABCKata
 
 
             //1. Make tuple array
-            
-            Tuple<string, string>[] blockList =
+
+
+
+            var blockList = new List<Tuple<string, string>>
+            //Tuple<string, string>[] blockList =
             {
             Tuple.Create("B", "O"),
             Tuple.Create("X", "K"),
@@ -122,11 +125,53 @@ namespace ABCKata
             Tuple.Create("Z", "M"),
             };
 
-            //Console.WriteLine(blocks);
+           
 
-            //Console.WriteLine(blocks.Item1);
+            Console.WriteLine(blockList.Count);
 
-            //Console.WriteLine(blockList[blockList.Count - 1]);
+            Console.WriteLine("What word are you trying to make?");
+            var userInput = Console.ReadLine().ToUpper();
+
+            //split word into letters
+            char userLetter;
+            foreach (char c in userInput)
+            {
+                userLetter = c;
+            }
+
+
+
+            string column1;
+            string column2;
+            foreach (Tuple<string, string> tuple in blockList)
+            {
+                column1 = tuple.Item1;
+                column2 = tuple.Item2;
+
+                //Console.WriteLine(column1[0]);
+
+            }
+
+
+
+
+            //loop through index of pairs
+            for (int i = 0; i < blockList.Count; i++)
+                foreach(char c in userInput)
+            {
+                    {
+                        userLetter = c;
+                        //Console.WriteLine(userLetter);
+
+
+                        //this is false
+                        Console.WriteLine(c.Equals(blockList[i]));
+
+                    }
+            }
+
+            //Console.WriteLine(blockList[0]);
+
 
         }
 

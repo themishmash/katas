@@ -10,16 +10,12 @@ namespace coffeeMachine
 
     //This is the actual drink class. Represents beverage. Doesn't show to user
 
-    
-
-
+ 
     public class Drink
         
     {
 
-        
-
-
+       
         //best practise to have private and public
         //private propertie for class use underscore. 
 
@@ -63,13 +59,19 @@ namespace coffeeMachine
 
 
 
-//Constructor
+//Constructor for all drinks except orange
         public Drink (DrinkType drinkType, int sugarLevel, bool isExtraHot)
         {
             DrinkType = drinkType;
             SugarLevel = sugarLevel;
             IsExtraHot = isExtraHot;
            
+        }
+
+//constructor for orange
+        public Drink (DrinkType drinkType)
+        {
+            DrinkType = drinkType;
         }
 
 
@@ -86,7 +88,7 @@ namespace coffeeMachine
 
 
 
-      
+        
         
 
         //public override string ToString()

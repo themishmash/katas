@@ -89,7 +89,7 @@ namespace coffeeMachine
                 //Don't need it as in the class
 
                 //say drinktype
-                DrinkType drinktype = (DrinkType)(drinkSelection) - 1;
+                DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
                 //var price = 0M;
                 //switch (drinktype)
                 //{
@@ -113,7 +113,7 @@ namespace coffeeMachine
                 //}
 
                 //giving properties to new object
-                var order = ordermachine.PlaceOrder(drinktype, sugarInt, tempInput);
+                var order = ordermachine.PlaceOrder(drinkType, sugarInt, tempInput);
 
 
                 Console.WriteLine($"That will be {order.Price}");
@@ -127,7 +127,7 @@ namespace coffeeMachine
                 }
 
                 //This prints out the price of the drink
-                Console.WriteLine($"The total cost for {drinktype} is {order.Price} Euros"); //0.6
+                //Console.WriteLine($"The total cost for {drinkType} is {order.Price} Euros"); //0.6
 
 
                 var balance = ordermachine.GetBalance(order.Price, moneyAmount);
@@ -135,12 +135,18 @@ namespace coffeeMachine
 
 
                 //Console.WriteLine(message);
-                //Console.WriteLine($"The total order count so far is {ordermachine.GetDrinkCount()}");
 
-                //Console.WriteLine($"The total cost so far is: {ordermachine.GetTotalCost()}");
+                Console.WriteLine($"Number of {drinkType} ordered: {ordermachine.GetReport(drinkType).TotalOrder}");
+                Console.WriteLine($"Total {drinkType} profit: {ordermachine.GetReport(drinkType).TotalCost}");
 
 
-                //Console.WriteLine($"Total coffee order: {ordermachine.GetCoffeeCount()}");
+                //Console.WriteLine($"Number of Tea ordered: {ordermachine.GetReport(DrinkType.Tea).TotalOrder}");
+                
+                //Console.WriteLine($"Total Tea profit: {ordermachine.GetReport(DrinkType.Tea).TotalCost}");
+
+
+
+
                 //Console.WriteLine($"Total Tea order: {ordermachine.GetTeaCount()}");
                 //Console.WriteLine($"Total Chocolate order: {ordermachine.GetChocCount()}");
                 //Console.WriteLine($"Total Orange order: {ordermachine.GetOrangeCount()}");
@@ -150,9 +156,15 @@ namespace coffeeMachine
                 //Console.WriteLine($"Chocolate stock: {ordermachine.GetChocStock()}");
                 //Console.WriteLine($"Orange stock: {ordermachine.GetOrangeStock()}");
 
+                Console.WriteLine($"Report details for number of drinks: {ordermachine.GetTotalTransactions().TotalOrder}");
+                Console.WriteLine($"Report details for total earnings for drinks: {ordermachine.GetTotalTransactions().TotalCost}");
+
+                Console.WriteLine($"Report details for total coffee number: {ordermachine.GetTotalTransactions().TotalCoffee}");
 
 
-                Console.WriteLine($"The balance is {balance}");
+
+
+                Console.WriteLine($"The change is {balance}");
 
 
                 Console.WriteLine("______________________________");

@@ -18,16 +18,7 @@ namespace coffeeMachine
     public class OrderMachine
     {
 
-        private int _drinkCount;
-
-
-        private decimal _totalCost;
-
-        //count of drinks
-        private int _coffeeCount;
-        private int _teaCount;
-        private int _chocCount;
-        private int _orangeCount;
+        
 
         //starting stock of drinks
         private int _coffeeStock = 10;
@@ -35,29 +26,49 @@ namespace coffeeMachine
         private int _chocStock = 10;
         private int _orangeStock = 10;
 
+        //Dictionary that is connected to Report class
+        private Dictionary<DrinkType, Report> _report = new Dictionary<DrinkType, Report>();
+
+
+
+
+
 
         //Constructor. In the constructor - calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
 
 
-        public Drink PlaceOrder(DrinkType drinktype, int sugar, string isExtraHotInput)
+        public Drink PlaceOrder(DrinkType drinkType, int sugar, string isExtraHotInput)
         {
-            //adding the drinkcount 
-            _drinkCount++;
+            
             //_totalCost += price;
-            SaveOrder(drinktype);
-            SaveStock(drinktype);
-            switch (drinktype)
+
+            
+            Drink drink = null;
+            //instantiate drink first
+            SaveStock(drinkType);
+            switch (drinkType)
             {
                 case DrinkType.Coffee:
-                    return new Coffee(drinktype, sugar, IsExtraHot(isExtraHotInput));
+                    drink = new Coffee(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    break;
+                //can return for any case - if not coffee. don't need this if have all the drinks.
 
-                    //can return for any case - if not coffee. don't need this if have all the drinks. 
-                default:
-                    return null;
+                case DrinkType.Tea:
+                    drink = new Tea(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    break;
+                case DrinkType.HotChoc:
+                    drink = new HotChoc(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    break;
+                case DrinkType.Orange:
+                    drink = new Orange(drinkType);
+                    break;
 
             }
 
+            SaveOrder(drinkType, drink.Price);
+
+            return drink;
             //return new Drink(drinktype, sugar, temp, message, price);
         }
 
@@ -66,39 +77,10 @@ namespace coffeeMachine
             return money - price;
         }
 
-        public int GetDrinkCount()
-        {
-            return _drinkCount;
-        }
-
-        public decimal GetTotalCost()
-        {
-            return _totalCost;
-        }
+      
 
 
-        public int GetCoffeeCount()
-        {
-            
-            return _coffeeCount;
-            
-        }
-
-        public int GetTeaCount()
-        {
-            return _teaCount;
-        }
-
-        public int GetChocCount()
-        {
-            return _chocCount;
-        }
-
-        public int GetOrangeCount()
-        {
-            return _orangeCount;
-        }
-
+        
         public int GetCoffeeStock()
         {
             return _coffeeStock;
@@ -119,29 +101,52 @@ namespace coffeeMachine
             return _orangeStock;
         }
 
-        private void SaveOrder(DrinkType drinkType)
-        {
-            switch (drinkType)
-            {
-                case DrinkType.Tea:
-                    
-                    _teaCount++;
-                    
-                    break;
-                case DrinkType.Coffee:
-                  
-                    _coffeeCount++;
-                    break;
-                case DrinkType.HotChoc:
-                    
-                    _chocCount++;
-                    break;
-                case DrinkType.Orange:
-                    
-                    _orangeCount++;
-                    break;
 
+        //every time order drink, want to increment order and cost in the dictionary
+        private void SaveOrder(DrinkType drinkType, decimal price)
+        {
+
+            if (_report.ContainsKey(drinkType))
+            {
+                _report[drinkType].TotalOrder++;
+                _report[drinkType].TotalCost += price;
+                
             }
+            else if(_report.ContainsKey(DrinkType.Coffee))
+            {
+                _report[DrinkType.Coffee].TotalOrder++;
+            }
+            else
+            {
+                _report.Add(drinkType, new Report() { TotalOrder = 1, TotalCost = price });
+            }
+
+          
+        }
+
+        public Report GetTotalTransactions()
+        {
+            var Report = new Report();
+            foreach (var eachDrink in _report.Keys)
+            {
+                Report.TotalCost += _report[eachDrink].TotalCost;
+                Report.TotalOrder += _report[eachDrink].TotalOrder;
+                Report.TotalCoffee += _report[eachDrink].TotalOrder;
+               
+            }
+
+            return Report;
+        }
+
+
+      
+
+      
+        // This is returning the value of the Report class of the particular drinktype
+        
+        public Report GetReport(DrinkType drinkType)
+        {
+            return _report[drinkType];
         }
 
 
