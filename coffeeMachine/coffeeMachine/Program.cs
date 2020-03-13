@@ -80,37 +80,10 @@ namespace coffeeMachine
 
 
 
-                //const decimal CoffeePrice = 0.6M;
-                //const decimal TeaPrice = 0.4M;
-                //const decimal ChocPrice = 0.5M;
-                //const decimal OrangePrice = 0.6M;
-
-
-                //Don't need it as in the class
-
+ 
                 //say drinktype
                 DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
-                //var price = 0M;
-                //switch (drinktype)
-                //{
-                //    case DrinkType.Coffee:
-                //        price = CoffeePrice;
-                //        break;
-
-                //    case DrinkType.Tea:
-                //        price = TeaPrice;
-                //        break;
-
-                //    case DrinkType.HotChoc:
-                //        price = ChocPrice;
-                //        break;
-
-                //    case DrinkType.Orange:
-                //        price = OrangePrice;
-                //        break;
-                //        //default:
-                //        //    break;
-                //}
+                
 
                 //giving properties to new object
                 var order = ordermachine.PlaceOrder(drinkType, sugarInt, tempInput);
@@ -138,39 +111,17 @@ namespace coffeeMachine
                 {
                     Console.WriteLine($"Total {eachDrink.Key} order : {eachDrink.Value.TotalOrder}");
                     Console.WriteLine($"Total {eachDrink.Key} transaction : {eachDrink.Value.TotalCost}");
+                    Console.WriteLine($"Total {eachDrink.Key} stock level : {eachDrink.Value.TotalStock}");
                 }
+
+                //All drinks sold:
+
+                Console.WriteLine($"Total orders: {ordermachine.GetTotalTransactions().TotalOrder}");
+                Console.WriteLine($"Total cost: {ordermachine.GetTotalTransactions().TotalCost}");
+
 
 
                 //Console.WriteLine(message);
-
-                //*******only returns particular drink
-                //Console.WriteLine($"Number of {drinkType} ordered: {ordermachine.GetReport(drinkType).TotalOrder}");
-                //Console.WriteLine($"Total {drinkType} profit: {ordermachine.GetReport(drinkType).TotalCost}");
-
-
-                //Console.WriteLine($"Number of Tea ordered: {ordermachine.GetReport(DrinkType.Tea).TotalOrder}");
-                
-                //Console.WriteLine($"Total Tea profit: {ordermachine.GetReport(DrinkType.Tea).TotalCost}");
-
-
-
-
-                //Console.WriteLine($"Total Tea order: {ordermachine.GetTeaCount()}");
-                //Console.WriteLine($"Total Chocolate order: {ordermachine.GetChocCount()}");
-                //Console.WriteLine($"Total Orange order: {ordermachine.GetOrangeCount()}");
-
-                //Console.WriteLine($"Coffee stock: {ordermachine.GetCoffeeStock()}");
-                //Console.WriteLine($"Tea stock: {ordermachine.GetTeaStock()}");
-                //Console.WriteLine($"Chocolate stock: {ordermachine.GetChocStock()}");
-                //Console.WriteLine($"Orange stock: {ordermachine.GetOrangeStock()}");
-
-                //Console.WriteLine($"Report details for number of drinks: {ordermachine.GetTotalTransactions().TotalOrder}");
-                //Console.WriteLine($"Report details for total earnings for drinks: {ordermachine.GetTotalTransactions().TotalCost}");
-
-
-                //DECREMENTS FOR ALL DRINKS - doesn't work
-                //Console.WriteLine($"Report details for coffee stock: {ordermachine.GetTotalTransactions().TotalCoffee}");
-
 
 
 
@@ -184,53 +135,6 @@ namespace coffeeMachine
             }
         }
 
-
-    //not using this method - using the GetDrinkMessage one instead
-
-        
-        
-        //private static string GetDrinkMessage (Drink order, decimal balance)
-        //{
-
-        //    //var sugarOutput = order.SugarLevel > 0 ? order.SugarLevel.ToString() : string.Empty;
-
-        //    //var hotOutput = order.IsExtraHot == "Y" ? "h" : string.Empty;
-
-        //   // string drinktype = string.Empty; //need to assign / initialize first the variable otherwise error
-
-        //    //int coffeeLevel = order.GetCoffeeCount();
-        //    //if (coffeeLevel == 0)
-        //    //{
-        //    //    Console.WriteLine("not enough");
-        //    //}
-
-        //    //string msgNotEnough = "Not enough money here";
-            
-
-        //    switch (order.DrinkType)
-        //    {
-        //        case DrinkType.Tea:
-        //            drinktype = "T";
-        //            break;
-        //        case DrinkType.Coffee:
-        //            drinktype = "C";
-        //            break;
-        //        case DrinkType.HotChoc:
-        //            drinktype = "H";
-        //            break;
-        //        case DrinkType.Orange:
-        //            drinktype = "O";
-        //            break;
-
-        //    }
-
-        //    var msg = string.Empty;
-        //    if (balance < 0)
-        //        msg = "you need to pay another " + System.Math.Abs(balance) + " Euros";
-
-        //    return ($"{drinktype}{hotOutput}:{sugarOutput}:{order.Stick}:{msg}");
-
-        //}
 
 
     

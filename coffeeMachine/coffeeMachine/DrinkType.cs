@@ -10,8 +10,7 @@ namespace coffeeMachine
             Coffee,
             Tea,
             HotChoc,
-            Orange,
-            Grape
+            Orange
         }
     
 }

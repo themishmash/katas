@@ -29,20 +29,16 @@ namespace coffeeMachine
         //Dictionary that is connected to Report class
         private Dictionary<DrinkType, Report> _report = new Dictionary<DrinkType, Report>();
 
+        //constructor
         public OrderMachine()
         {
             foreach (DrinkType drinkType in Enum.GetValues(typeof(DrinkType)))
                 {
-                _report.Add(drinkType, new Report() { TotalOrder = 0, TotalCost = 0 });
+                _report.Add(drinkType, new Report() { TotalOrder = 0, TotalCost = 0, TotalStock = 10 });
             };
 
-            //_report.Add(DrinkType.Coffee, new Report() { TotalOrder = 0, TotalCost = 0 });
 
-            //_report.Add(DrinkType.Tea, new Report() { TotalOrder = 0, TotalCost = 0 });
 
-            //_report.Add(DrinkType.HotChoc, new Report() { TotalOrder = 0, TotalCost = 0 });
-
-            //_report.Add(DrinkType.Orange, new Report() { TotalOrder = 0, TotalCost = 0 });
         }
 
 
@@ -120,20 +116,10 @@ namespace coffeeMachine
         private void SaveOrder(DrinkType drinkType, decimal price)
         {
 
-            //if (_report.ContainsKey(drinkType))
-            //{
+            
                 _report[drinkType].TotalOrder++;
                 _report[drinkType].TotalCost += price;
-
-                //12-3 ADDED THIS 
-                //_report[drinkType].TotalCoffee--;
-                
-            //}
-            //else
-            //{
-            //    _report.Add(drinkType, new Report() { TotalOrder = 1, TotalCost = price });
-            //}
-
+                _report[drinkType].TotalStock--;
           
         }
 
@@ -144,7 +130,7 @@ namespace coffeeMachine
             {
                 Report.TotalCost += _report[eachDrink].TotalCost;
                 Report.TotalOrder += _report[eachDrink].TotalOrder;
-
+                Report.TotalStock += _report[eachDrink].TotalStock;
                 //Added this too
                 //Report.TotalCoffee--;
                
