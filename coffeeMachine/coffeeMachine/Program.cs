@@ -124,9 +124,6 @@ namespace coffeeMachine
                 //Console.WriteLine(message);
 
 
-
-
-
                 Console.WriteLine($"The change is {balance}");
 
 

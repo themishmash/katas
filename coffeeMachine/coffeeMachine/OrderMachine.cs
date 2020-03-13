@@ -19,13 +19,6 @@ namespace coffeeMachine
     {
 
 
-
-        //starting stock of drinks
-        private int _coffeeStock = 10;
-        private int _teaStock = 10;
-        private int _chocStock = 10;
-        private int _orangeStock = 10;
-
         //Dictionary that is connected to Report class
         private Dictionary<DrinkType, Report> _report = new Dictionary<DrinkType, Report>();
 
@@ -56,7 +49,7 @@ namespace coffeeMachine
             
             Drink drink = null;
             //instantiate drink first
-            SaveStock(drinkType);
+           
             switch (drinkType)
             {
                 case DrinkType.Coffee:
@@ -89,34 +82,10 @@ namespace coffeeMachine
 
       
 
-
-        
-        public int GetCoffeeStock()
-        {
-            return _coffeeStock;
-        }
-
-        public int GetTeaStock()
-        {
-            return _teaStock;
-        }
-
-        public int GetChocStock()
-        {
-            return _chocStock;
-        }
-
-        public int GetOrangeStock()
-        {
-            return _orangeStock;
-        }
-
-
         //every time order drink, want to increment order and cost in the dictionary
         private void SaveOrder(DrinkType drinkType, decimal price)
         {
 
-            
                 _report[drinkType].TotalOrder++;
                 _report[drinkType].TotalCost += price;
                 _report[drinkType].TotalStock--;
@@ -158,30 +127,7 @@ namespace coffeeMachine
         }
 
 
-        private void SaveStock(DrinkType drinkType)
-        {
-            switch (drinkType)
-            {
-                case DrinkType.Tea:
 
-                    _teaStock--;
-
-                    break;
-                case DrinkType.Coffee:
-
-                    _coffeeStock--;
-                    break;
-                case DrinkType.HotChoc:
-
-                    _chocStock--;
-                    break;
-                case DrinkType.Orange:
-
-                    _orangeStock--;
-                    break;
-
-            }
-        }
 
         private bool IsExtraHot(string input)
         {
