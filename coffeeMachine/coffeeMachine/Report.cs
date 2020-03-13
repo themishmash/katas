@@ -6,7 +6,8 @@ namespace coffeeMachine
         public int TotalOrder { get; set; }
         public decimal TotalCost { get; set; }
 
-        public int TotalCoffee { get; set; }
+        //12-3 ADDED THIS
+        public int TotalStock { get; set; }
         
     }
 }

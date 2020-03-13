@@ -14,11 +14,11 @@ using System.Linq;
 
 namespace coffeeMachine
 {
-    
+
     public class OrderMachine
     {
 
-        
+
 
         //starting stock of drinks
         private int _coffeeStock = 10;
@@ -29,7 +29,21 @@ namespace coffeeMachine
         //Dictionary that is connected to Report class
         private Dictionary<DrinkType, Report> _report = new Dictionary<DrinkType, Report>();
 
+        public OrderMachine()
+        {
+            foreach (DrinkType drinkType in Enum.GetValues(typeof(DrinkType)))
+                {
+                _report.Add(drinkType, new Report() { TotalOrder = 0, TotalCost = 0 });
+            };
 
+            //_report.Add(DrinkType.Coffee, new Report() { TotalOrder = 0, TotalCost = 0 });
+
+            //_report.Add(DrinkType.Tea, new Report() { TotalOrder = 0, TotalCost = 0 });
+
+            //_report.Add(DrinkType.HotChoc, new Report() { TotalOrder = 0, TotalCost = 0 });
+
+            //_report.Add(DrinkType.Orange, new Report() { TotalOrder = 0, TotalCost = 0 });
+        }
 
 
 
@@ -106,20 +120,19 @@ namespace coffeeMachine
         private void SaveOrder(DrinkType drinkType, decimal price)
         {
 
-            if (_report.ContainsKey(drinkType))
-            {
+            //if (_report.ContainsKey(drinkType))
+            //{
                 _report[drinkType].TotalOrder++;
                 _report[drinkType].TotalCost += price;
+
+                //12-3 ADDED THIS 
+                //_report[drinkType].TotalCoffee--;
                 
-            }
-            else if(_report.ContainsKey(DrinkType.Coffee))
-            {
-                _report[DrinkType.Coffee].TotalOrder++;
-            }
-            else
-            {
-                _report.Add(drinkType, new Report() { TotalOrder = 1, TotalCost = price });
-            }
+            //}
+            //else
+            //{
+            //    _report.Add(drinkType, new Report() { TotalOrder = 1, TotalCost = price });
+            //}
 
           
         }
@@ -131,7 +144,9 @@ namespace coffeeMachine
             {
                 Report.TotalCost += _report[eachDrink].TotalCost;
                 Report.TotalOrder += _report[eachDrink].TotalOrder;
-                Report.TotalCoffee += _report[eachDrink].TotalOrder;
+
+                //Added this too
+                //Report.TotalCoffee--;
                
             }
 
@@ -143,10 +158,17 @@ namespace coffeeMachine
 
       
         // This is returning the value of the Report class of the particular drinktype
-        
+
+            //this only returned particular drink
         public Report GetReport(DrinkType drinkType)
         {
             return _report[drinkType];
+        }
+
+        //This can return everything
+        public Dictionary<DrinkType, Report> GetReports()
+        {
+            return _report;
         }
 
 

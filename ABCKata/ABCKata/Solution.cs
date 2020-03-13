@@ -137,7 +137,9 @@ namespace ABCKata
             foreach (char c in userInput)
             {
                 userLetter = c;
+                
             }
+
 
 
 
@@ -148,29 +150,71 @@ namespace ABCKata
                 column1 = tuple.Item1;
                 column2 = tuple.Item2;
 
-                //Console.WriteLine(column1[0]);
+                //Console.WriteLine(column1);
 
             }
 
 
+            //foreach (Tuple<string, string> tuple in blockList)
+            //    foreach (char c in userInput)
+            //{
+            //    column1 = tuple.Item1;
+            //    column2 = tuple.Item2;
+
+            //        if (column1.Contains(c) || column2.Contains(c))
+            //        {
+            //            Console.WriteLine("true");
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("false");
+            //        }
+
+            //    //Console.WriteLine(column1);
+
+            //}
+
+
+           
 
 
             //loop through index of pairs
             for (int i = 0; i < blockList.Count; i++)
-                foreach(char c in userInput)
-            {
+                foreach (char c in userInput)
+                {
                     {
-                        userLetter = c;
+                        
+
+                        Console.WriteLine(c); //seems to only print for blocks that aren't contain it? 
+
                         //Console.WriteLine(userLetter);
 
-
+                        //if (userLetter == i)
+                        //{
+                        //    Console.WriteLine("true");
+                        //}
                         //this is false
-                        Console.WriteLine(c.Equals(blockList[i]));
+                        // Console.WriteLine(c.Equals(blockList[i]));
+                        //Console.WriteLine(blockList[i]);
+
+                        string pairs = blockList[i].ToString();
+
+                        //check syntax!!!
+                        var list = new List<Tuple<string, string>>();
+                        if (pairs.Contains(c))
+                        {
+
+                            list = blockList.Remove(blockList[i]);
+                            //Console.WriteLine(blockList[i]);
+                        }
+                        
+
+
 
                     }
-            }
+                }
 
-            //Console.WriteLine(blockList[0]);
+
 
 
         }

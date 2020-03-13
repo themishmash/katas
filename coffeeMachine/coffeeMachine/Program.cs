@@ -133,11 +133,19 @@ namespace coffeeMachine
                 var balance = ordermachine.GetBalance(order.Price, moneyAmount);
                 //var message = GetDrinkMessage(order, balance);
 
+                var report = ordermachine.GetReports();
+                foreach(var eachDrink in report)
+                {
+                    Console.WriteLine($"Total {eachDrink.Key} order : {eachDrink.Value.TotalOrder}");
+                    Console.WriteLine($"Total {eachDrink.Key} transaction : {eachDrink.Value.TotalCost}");
+                }
+
 
                 //Console.WriteLine(message);
 
-                Console.WriteLine($"Number of {drinkType} ordered: {ordermachine.GetReport(drinkType).TotalOrder}");
-                Console.WriteLine($"Total {drinkType} profit: {ordermachine.GetReport(drinkType).TotalCost}");
+                //*******only returns particular drink
+                //Console.WriteLine($"Number of {drinkType} ordered: {ordermachine.GetReport(drinkType).TotalOrder}");
+                //Console.WriteLine($"Total {drinkType} profit: {ordermachine.GetReport(drinkType).TotalCost}");
 
 
                 //Console.WriteLine($"Number of Tea ordered: {ordermachine.GetReport(DrinkType.Tea).TotalOrder}");
@@ -156,10 +164,14 @@ namespace coffeeMachine
                 //Console.WriteLine($"Chocolate stock: {ordermachine.GetChocStock()}");
                 //Console.WriteLine($"Orange stock: {ordermachine.GetOrangeStock()}");
 
-                Console.WriteLine($"Report details for number of drinks: {ordermachine.GetTotalTransactions().TotalOrder}");
-                Console.WriteLine($"Report details for total earnings for drinks: {ordermachine.GetTotalTransactions().TotalCost}");
+                //Console.WriteLine($"Report details for number of drinks: {ordermachine.GetTotalTransactions().TotalOrder}");
+                //Console.WriteLine($"Report details for total earnings for drinks: {ordermachine.GetTotalTransactions().TotalCost}");
 
-                Console.WriteLine($"Report details for total coffee number: {ordermachine.GetTotalTransactions().TotalCoffee}");
+
+                //DECREMENTS FOR ALL DRINKS - doesn't work
+                //Console.WriteLine($"Report details for coffee stock: {ordermachine.GetTotalTransactions().TotalCoffee}");
+
+
 
 
 
