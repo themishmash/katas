@@ -20,82 +20,16 @@ namespace coffeeMachine
         //private propertie for class use underscore. 
 
         //Properties
-        public DrinkType DrinkType { get; }
+        //protected set allows things to inherit from it to set
+        public DrinkType DrinkType { get; protected set; }
 
-        public int SugarLevel { get;  }
+        public bool CanHaveSugar { get; protected set; }
 
-        public bool IsExtraHot { get; }
-
-        //made boolean
-        public bool Stick
-        {
-            get
-            {
-                return GetStick(SugarLevel);
-            }
-        }
-        //public string Message { get; }
+        public bool CanBeExtraHot { get; protected set; }
+     
+        public decimal Price { get; protected set; }
 
 
-       //if make virtual - children can override
-        public virtual decimal Price { get; }
-
-
-
-
-        
-
-
-
-        //public static void totalCost()
-        //{
-        //    foreach (Drink drink in drinkList)
-        //    {
-        //        Console.WriteLine(drinkList.Price);
-        //    }
-        //}
-
-
-
-
-
-//Constructor for all drinks except orange
-        public Drink (DrinkType drinkType, int sugarLevel, bool isExtraHot)
-        {
-            DrinkType = drinkType;
-            SugarLevel = sugarLevel;
-            IsExtraHot = isExtraHot;
-           
-        }
-
-//constructor for orange
-        public Drink (DrinkType drinkType)
-        {
-            DrinkType = drinkType;
-        }
-
-
-
-        //only used here so it is private function
-        private bool GetStick(int sugarLevel)
-        {
-            return sugarLevel > 0;
-        }
-
-
-   
-
-
-
-
-        
-        
-
-        //public override string ToString()
-        //{
-        //    return ($"{_drinkType}:{_sugar}:{_stick}:{_message}");
-
-        //}
 
 
     }

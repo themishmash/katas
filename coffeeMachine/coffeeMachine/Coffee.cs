@@ -3,15 +3,19 @@ namespace coffeeMachine
 {
     public class Coffee : Drink
     {
-        public override decimal Price { get { return 0.6M;  } }
-
-     
-
-        public Coffee(DrinkType drinkType, int sugarLevel, bool isExtraHot) : base(drinkType, sugarLevel, isExtraHot)
+        public Coffee ()
         {
-            //this will increment each time a coffee instance is made
-          
-        }
+            //get { return 0.6M;  }
+
+            //Starting to do a typed a enum
+            DrinkType = DrinkType.Coffee;
+            Price = 0.6M;
+            CanHaveSugar = true;
+            CanBeExtraHot = true;
+           
+                }
+
+        
 
 
     }

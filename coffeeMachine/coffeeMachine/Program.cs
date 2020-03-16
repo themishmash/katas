@@ -78,10 +78,8 @@ namespace coffeeMachine
 
                 }
 
-
-
  
-                //say drinktype
+                //say which drinktype
                 DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
                 
 
@@ -98,9 +96,6 @@ namespace coffeeMachine
                 {
                     Console.WriteLine("Please enter a number");
                 }
-
-                //This prints out the price of the drink
-                //Console.WriteLine($"The total cost for {drinkType} is {order.Price} Euros"); //0.6
 
 
                 var balance = ordermachine.GetBalance(order.Price, moneyAmount);
@@ -120,11 +115,19 @@ namespace coffeeMachine
                 Console.WriteLine($"Total cost: {ordermachine.GetTotalTransactions().TotalCost}");
 
 
-
                 //Console.WriteLine(message);
 
+                var printMessage = PrintMessage(order); //why is this only work for order?
 
-                Console.WriteLine($"The change is {balance}");
+                Console.WriteLine($"The change for the customer is {balance}");
+
+
+                Console.WriteLine(printMessage);
+
+              
+
+
+                
 
 
                 Console.WriteLine("______________________________");
@@ -133,8 +136,104 @@ namespace coffeeMachine
         }
 
 
+        private static string PrintMessage (Drink order)
+        {
+            return ($"{PrintDrink(order.DrinkType)}{PrintHot(order.IsExtraHot)}{PrintSugar(order.SugarLevel)}");
+        }
 
-    
 
-    }
+        private static string PrintDrink(DrinkType drinkType)
+        {         
+            switch (drinkType)
+            {
+                case DrinkType.Tea:
+                    return "T";
+                   
+                case DrinkType.Coffee:
+                    return "C";
+                    
+                case DrinkType.HotChoc:
+                   return "H";
+                    
+                case DrinkType.Orange:
+                    return "O";
+
+                default:
+                    return string.Empty;
+
+            }
+           
+        }
+
+
+        private static string PrintHot(bool isExtraHot)
+        {
+            return isExtraHot ? "h" : string.Empty;
+  
+        }
+
+        private static string PrintSugar(int sugarLevel)
+        {
+            return sugarLevel > 0 ? ($" :{ sugarLevel.ToString()}:0") : "::";
+
+        }
+
+        private static string PrintBalanceMsg(decimal getBalance)
+        {
+            return getBalance < 0 ? ($":You need to pay another {System.Math.Abs(getBalance)} + Euros") : string.Empty;
+        }
+        
+
+
+        
+
+
+            //not using this method - using the GetDrinkMessage one instead
+
+
+
+            //private static string GetDrinkMessage (Drink order, decimal balance)
+            //{
+
+            //    //var sugarOutput = order.SugarLevel > 0 ? order.SugarLevel.ToString() : string.Empty;
+
+            //    //var hotOutput = order.IsExtraHot == "Y" ? "h" : string.Empty;
+
+            //   // string drinktype = string.Empty; //need to assign / initialize first the variable otherwise error
+
+            //    //int coffeeLevel = order.GetCoffeeCount();
+            //    //if (coffeeLevel == 0)
+            //    //{
+            //    //    Console.WriteLine("not enough");
+            //    //}
+
+            //    //string msgNotEnough = "Not enough money here";
+
+
+            //    switch (order.DrinkType)
+            //    {
+            //        case DrinkType.Tea:
+            //            drinktype = "T";
+            //            break;
+            //        case DrinkType.Coffee:
+            //            drinktype = "C";
+            //            break;
+            //        case DrinkType.HotChoc:
+            //            drinktype = "H";
+            //            break;
+            //        case DrinkType.Orange:
+            //            drinktype = "O";
+            //            break;
+
+            //    }
+
+            //    var msg = string.Empty;
+            //    if (balance < 0)
+            //        msg = "you need to pay another " + System.Math.Abs(balance) + " Euros";
+
+            //    return ($"{drinktype}{hotOutput}:{sugarOutput}:{order.Stick}:{msg}");
+
+            //}
+
+        }
 }

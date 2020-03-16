@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{3970C69E-E8E5-4659-996B-BD88E6A06013}|Default">
   <MonoDevelop.Ide.ItemProperties.coffeeMachine PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/OrderMachine.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="coffeeMachine/Drink.cs">
     <Files>
-      <File FileName="coffeeMachine/Coffee.cs" Line="13" Column="11" />
-      <File FileName="coffeeMachine/Program.cs" />
-      <File FileName="coffeeMachine/HotChoc.cs" />
-      <File FileName="coffeeMachine/Orange.cs" />
-      <File FileName="coffeeMachine/DrinkType.cs" Line="16" Column="2" NotebookId="1" />
-      <File FileName="coffeeMachine/Drink.cs" NotebookId="1" />
-      <File FileName="coffeeMachine/Tea.cs" NotebookId="1" />
-      <File FileName="coffeeMachine/OrderMachine.cs" Line="134" Column="33" NotebookId="1" />
-      <File FileName="coffeeMachine/Report.cs" NotebookId="1" />
+      <File FileName="coffeeMachine/Coffee.cs" Line="8" Column="8" />
+      <File FileName="coffeeMachine/Program.cs" Line="101" Column="43" />
+      <File FileName="coffeeMachine/HotChoc.cs" Line="1" Column="1" />
+      <File FileName="coffeeMachine/Orange.cs" Line="2" Column="24" />
+      <File FileName="coffeeMachine/Drink.cs" Line="44" Column="9" />
+      <File FileName="coffeeMachine/DrinkType.cs" Line="13" Column="19" NotebookId="1" />
+      <File FileName="coffeeMachine/Tea.cs" Line="12" Column="1" NotebookId="1" />
+      <File FileName="coffeeMachine/OrderMachine.cs" Line="96" Column="11" NotebookId="1" />
+      <File FileName="coffeeMachine/Report.cs" Line="10" Column="30" NotebookId="1" />
+      <File FileName="coffeeMachine/Order.cs" Line="11" Column="16" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="coffeeMachine" expanded="True">
             <Node name="coffeeMachine" expanded="True">
-              <Node name="OrderMachine.cs" selected="True" />
+              <Node name="Drink.cs" selected="True" />
             </Node>
           </Node>
         </State>

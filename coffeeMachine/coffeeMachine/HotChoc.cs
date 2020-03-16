@@ -3,10 +3,12 @@ namespace coffeeMachine
 {
     public class HotChoc : Drink
     {
-        public override decimal Price { get { return 0.5M;  } }
-        public HotChoc(DrinkType drinkType, int sugarLevel, bool isExtraHot) : base(drinkType, sugarLevel, isExtraHot)
+        public HotChoc()
         {
-
+            DrinkType = DrinkType.HotChoc;
+            Price = 0.5M;
+            CanHaveSugar = true;
+            CanBeExtraHot = true;
         }
     }
 }

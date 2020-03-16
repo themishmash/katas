@@ -19,8 +19,9 @@ namespace coffeeMachine
     {
 
 
-        //Dictionary that is connected to Report class
+        //Dictionary that is connected to Report class - see Report class
         private Dictionary<DrinkType, Report> _report = new Dictionary<DrinkType, Report>();
+
 
         //constructor
         public OrderMachine()
@@ -39,7 +40,6 @@ namespace coffeeMachine
 
         //Constructor. In the constructor - calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
-
 
         public Drink PlaceOrder(DrinkType drinkType, int sugar, string isExtraHotInput)
         {
@@ -69,9 +69,11 @@ namespace coffeeMachine
 
             }
 
-            SaveOrder(drinkType, drink.Price);
+            SaveOrder(drink);
 
+           
             return drink;
+           
             //return new Drink(drinktype, sugar, temp, message, price);
         }
 
@@ -83,13 +85,16 @@ namespace coffeeMachine
       
 
         //every time order drink, want to increment order and cost in the dictionary
-        private void SaveOrder(DrinkType drinkType, decimal price)
+        private void SaveOrder(Drink drink)
         {
 
-                _report[drinkType].TotalOrder++;
-                _report[drinkType].TotalCost += price;
-                _report[drinkType].TotalStock--;
+            var order = new Order();
+            order.DrinkType = drink.DrinkType;
+            order.DrinkPrice = drink.Price;
+            order.SugarLevel = drink.SugarLevel;
+            order.IsExtraHot = drink.IsExtraHot;
           
+
         }
 
         public Report GetTotalTransactions()
@@ -135,6 +140,7 @@ namespace coffeeMachine
         }
 
         
+
 
     }
 

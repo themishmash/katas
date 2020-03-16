@@ -3,9 +3,12 @@ namespace coffeeMachine
 {
     public class Orange : Drink
     {
-        public override decimal Price {  get { return 0.6M;  } }
-        public Orange(DrinkType drinkType) : base(drinkType)
+        public Orange()
         {
+            DrinkType = DrinkType.Orange;
+            Price = 0.6M;
+            CanHaveSugar = false;
+            CanBeExtraHot = false;
         }
     }
 }
