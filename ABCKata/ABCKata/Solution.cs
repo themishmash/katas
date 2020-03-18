@@ -137,8 +137,11 @@ namespace ABCKata
             foreach (char c in userInput)
             {
                 userLetter = c;
+
+                Console.WriteLine(userLetter);
                 
             }
+
 
 
 
@@ -155,64 +158,60 @@ namespace ABCKata
             }
 
 
-            //foreach (Tuple<string, string> tuple in blockList)
-            //    foreach (char c in userInput)
+
+
+            //Help from windy
+            //var temp = blockList.First(x => x.Item1 == "A" || x.Item2 == "A");
+            //blockList.Remove(temp);
+            //foreach (var each in blockList)
             //{
-            //    column1 = tuple.Item1;
-            //    column2 = tuple.Item2;
-
-            //        if (column1.Contains(c) || column2.Contains(c))
-            //        {
-            //            Console.WriteLine("true");
-            //        }
-            //        else
-            //        {
-            //            Console.WriteLine("false");
-            //        }
-
-            //    //Console.WriteLine(column1);
-
+            //    Console.WriteLine(each.Item1 + " " + each.Item2);
             //}
+            //Console.WriteLine(blockList);
 
 
-           
+            //try while not found
 
-
+            bool found = false;
+            while (!found)
+            {
+                //loop through blocklist
+                //check if contain user input
+                //if yes set found = true
+            }
             //loop through index of pairs
             for (int i = 0; i < blockList.Count; i++)
-                foreach (char c in userInput)
+            {
+                for (int x = 0; x < userInput.Length; x++)
+
                 {
+
+                    //Console.WriteLine(userInput[x]);
+
+                    string pairs = blockList[i].ToString();
+                    if (pairs.Contains(userInput[x]))
                     {
-                        
 
-                        Console.WriteLine(c); //seems to only print for blocks that aren't contain it? 
 
-                        //Console.WriteLine(userLetter);
 
-                        //if (userLetter == i)
-                        //{
-                        //    Console.WriteLine("true");
-                        //}
-                        //this is false
-                        // Console.WriteLine(c.Equals(blockList[i]));
-                        //Console.WriteLine(blockList[i]);
-
-                        string pairs = blockList[i].ToString();
-
-                        //check syntax!!!
-                        var list = new List<Tuple<string, string>>();
-                        if (pairs.Contains(c))
-                        {
-
-                            list = blockList.Remove(blockList[i]);
-                            //Console.WriteLine(blockList[i]);
-                        }
-                        
+                        pairs = pairs.Remove(x);
+                        found = true;
 
 
 
                     }
+
+
+                    if (found) break;
+
+                    Console.WriteLine(pairs);
+
+
+
+
                 }
+                if (found) break;
+            }
 
 
 

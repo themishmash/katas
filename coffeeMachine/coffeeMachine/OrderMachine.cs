@@ -41,7 +41,7 @@ namespace coffeeMachine
         //Constructor. In the constructor - calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
 
-        public Drink PlaceOrder(DrinkType drinkType, int sugar, string isExtraHotInput)
+        public Order StartOrder(DrinkType drinkType)
         {
             
             //_totalCost += price;
@@ -49,33 +49,48 @@ namespace coffeeMachine
             
             Drink drink = null;
             //instantiate drink first
-           
+
+            
+
+            //this one fixed - removed the previous things that were passed as arguments for new instances
             switch (drinkType)
             {
                 case DrinkType.Coffee:
-                    drink = new Coffee(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    drink = new Coffee();
                     break;
                 //can return for any case - if not coffee. don't need this if have all the drinks.
 
                 case DrinkType.Tea:
-                    drink = new Tea(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    drink = new Tea();
                     break;
                 case DrinkType.HotChoc:
-                    drink = new HotChoc(drinkType, sugar, IsExtraHot(isExtraHotInput));
+                    drink = new HotChoc();
                     break;
                 case DrinkType.Orange:
-                    drink = new Orange(drinkType);
+                    drink = new Orange();
                     break;
 
             }
 
-            SaveOrder(drink);
+            var order = SaveOrder(drink);
 
            
-            return drink;
+            return order;
            
             //return new Drink(drinktype, sugar, temp, message, price);
         }
+
+
+        public void AddSugar(Order order, int sugar)
+        {
+            order.SugarLevel = sugar;
+        }
+
+        public void ExtraHot (Order order, bool extraHot)
+        {
+            order.IsExtraHot = extraHot;
+        }
+
 
         public decimal GetBalance(decimal price, decimal money)
         {
@@ -85,14 +100,14 @@ namespace coffeeMachine
       
 
         //every time order drink, want to increment order and cost in the dictionary
-        private void SaveOrder(Drink drink)
+        private Order SaveOrder(Drink drink)
         {
 
             var order = new Order();
-            order.DrinkType = drink.DrinkType;
-            order.DrinkPrice = drink.Price;
-            order.SugarLevel = drink.SugarLevel;
-            order.IsExtraHot = drink.IsExtraHot;
+            order.Drink = drink;
+
+
+            return order;
           
 
         }

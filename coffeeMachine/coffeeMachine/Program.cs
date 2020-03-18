@@ -58,91 +58,109 @@ namespace coffeeMachine
                     Console.WriteLine("Please enter a number");
                 }
 
+                //say which drinktype
+                DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
+
+                //giving properties to new object
+                var order = ordermachine.StartOrder(drinkType);
+
                 //Only ask sugars and if want extra hot if it is c, t, hc
-                int sugarInt = 0;
-                string tempInput = string.Empty;
-                if (drinkSelection != 4)
+               
+                
+                if (order.Drink.CanHaveSugar)
                 {
                     Console.WriteLine("How many sugars would you like?");
                     string sugarInput = Console.ReadLine();
 
-
-                    if (!Int32.TryParse(sugarInput, out sugarInt))
+                    int sugarInt = 0;
+                    if (Int32.TryParse(sugarInput, out sugarInt))
                     {
-                        Console.WriteLine("Please enter a number!");
+                        ordermachine.AddSugar(order, sugarInt);
                     }
+                }
 
-                    //Only asks about extra hot if it is c, t, hc
+
+                ////Only asks about extra hot if it is c, t, hc
+                if (order.Drink.CanBeExtraHot)
+                {
+                   
                     Console.WriteLine("Would you like it to be extra hot? Y/N");
-                    tempInput = Console.ReadLine().ToUpper();
+                    string yesOrNo = Console.ReadLine().ToUpper();
 
-                }
-
- 
-                //say which drinktype
-                DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
-                
-
-                //giving properties to new object
-                var order = ordermachine.PlaceOrder(drinkType, sugarInt, tempInput);
-
-
-                Console.WriteLine($"That will be {order.Price}");
-                Console.WriteLine("How much money do you have?");
-                string moneyInput = Console.ReadLine();
-
-                decimal moneyAmount;
-                if (!decimal.TryParse(moneyInput, out moneyAmount))
-                {
-                    Console.WriteLine("Please enter a number");
+                    if (yesOrNo == "Y")
+                    {
+                        ordermachine.ExtraHot(order, true);
+                    }
+                   
                 }
 
 
-                var balance = ordermachine.GetBalance(order.Price, moneyAmount);
-                //var message = GetDrinkMessage(order, balance);
 
-                var report = ordermachine.GetReports();
-                foreach(var eachDrink in report)
-                {
-                    Console.WriteLine($"Total {eachDrink.Key} order : {eachDrink.Value.TotalOrder}");
-                    Console.WriteLine($"Total {eachDrink.Key} transaction : {eachDrink.Value.TotalCost}");
-                    Console.WriteLine($"Total {eachDrink.Key} stock level : {eachDrink.Value.TotalStock}");
-                }
 
-                //All drinks sold:
 
-                Console.WriteLine($"Total orders: {ordermachine.GetTotalTransactions().TotalOrder}");
-                Console.WriteLine($"Total cost: {ordermachine.GetTotalTransactions().TotalCost}");
+
+
+
+
+
+
+                //Console.WriteLine($"That will be {order.Price}");
+                //Console.WriteLine("How much money do you have?");
+                //string moneyInput = Console.ReadLine();
+
+                //decimal moneyAmount;
+                //if (!decimal.TryParse(moneyInput, out moneyAmount))
+                //{
+                //    Console.WriteLine("Please enter a number");
+                //}
+
+
+                //var balance = ordermachine.GetBalance(order.Price, moneyAmount);
+                ////var message = GetDrinkMessage(order, balance);
+
+                //var report = ordermachine.GetReports();
+                //foreach(var eachDrink in report)
+                //{
+                //    Console.WriteLine($"Total {eachDrink.Key} order : {eachDrink.Value.TotalOrder}");
+                //    Console.WriteLine($"Total {eachDrink.Key} transaction : {eachDrink.Value.TotalCost}");
+                //    Console.WriteLine($"Total {eachDrink.Key} stock level : {eachDrink.Value.TotalStock}");
+                //}
+
+                ////All drinks sold:
+
+                //Console.WriteLine($"Total orders: {ordermachine.GetTotalTransactions().TotalOrder}");
+                //Console.WriteLine($"Total cost: {ordermachine.GetTotalTransactions().TotalCost}");
 
 
                 //Console.WriteLine(message);
 
-                var printMessage = PrintMessage(order); //why is this only work for order?
+                PrintMessage(order);
+               //PrintMessage(order); //why is this only work for order?
 
-                Console.WriteLine($"The change for the customer is {balance}");
+                //Console.WriteLine($"The change for the customer is {balance}");
 
-
-                Console.WriteLine(printMessage);
-
-              
+   
 
 
-                
-
-
-                Console.WriteLine("______________________________");
+                //Console.WriteLine("______________________________");
 
             }
         }
 
 
-        private static string PrintMessage (Drink order)
+        private static void PrintMessage (Order order)
         {
-            return ($"{PrintDrink(order.DrinkType)}{PrintHot(order.IsExtraHot)}{PrintSugar(order.SugarLevel)}");
+            Console.WriteLine(PrintDrinkLetter(order.Drink.DrinkType));
+            Console.WriteLine(PrintExtraHotLetter(order.IsExtraHot));
+
+            
+            //Console.WriteLine(order.NeedsStick());
+
         }
+        //{PrintSugar(order.SugarLevel)}
+        
 
-
-        private static string PrintDrink(DrinkType drinkType)
+    private static string PrintDrinkLetter(DrinkType drinkType)
         {         
             switch (drinkType)
             {
@@ -166,11 +184,19 @@ namespace coffeeMachine
         }
 
 
-        private static string PrintHot(bool isExtraHot)
+        private static string PrintExtraHotLetter(bool extraHot)
         {
-            return isExtraHot ? "h" : string.Empty;
-  
+            return extraHot ? "h" : string.Empty;
+
         }
+
+        //private static string PrintExtraHotLetter(Order order)
+        //{
+        //    return order.Drink.CanBeExtraHot && order.IsExtraHot ? "h" : string.Empty;
+
+        //}
+
+
 
         private static string PrintSugar(int sugarLevel)
         {
