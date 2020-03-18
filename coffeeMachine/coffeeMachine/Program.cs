@@ -96,23 +96,15 @@ namespace coffeeMachine
 
 
 
+                Console.WriteLine($"That will be {order.Drink.Price}");
+                Console.WriteLine("How much money do you have?");
+                string moneyInput = Console.ReadLine();
 
-
-
-
-
-
-
-
-                //Console.WriteLine($"That will be {order.Price}");
-                //Console.WriteLine("How much money do you have?");
-                //string moneyInput = Console.ReadLine();
-
-                //decimal moneyAmount;
-                //if (!decimal.TryParse(moneyInput, out moneyAmount))
-                //{
-                //    Console.WriteLine("Please enter a number");
-                //}
+                decimal moneyAmount;
+                if (decimal.TryParse(moneyInput, out moneyAmount))
+                {
+                    ordermachine.GetBalance(order.Drink.Price, moneyAmount);
+                }
 
 
                 //var balance = ordermachine.GetBalance(order.Price, moneyAmount);
@@ -153,6 +145,7 @@ namespace coffeeMachine
             Console.Write(PrintDrinkLetter(order.Drink.DrinkType));
             Console.Write(PrintExtraHotLetter(order.IsExtraHot));
             Console.WriteLine(PrintSugar(order.SugarLevel));
+            Console.WriteLine(PrintBalanceMsg(order.AmountPaid));
 
             
             //Console.WriteLine(order.NeedsStick());
