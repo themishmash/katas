@@ -150,8 +150,9 @@ namespace coffeeMachine
 
         private static void PrintMessage (Order order)
         {
-            Console.WriteLine(PrintDrinkLetter(order.Drink.DrinkType));
-            Console.WriteLine(PrintExtraHotLetter(order.IsExtraHot));
+            Console.Write(PrintDrinkLetter(order.Drink.DrinkType));
+            Console.Write(PrintExtraHotLetter(order.IsExtraHot));
+            Console.WriteLine(PrintSugar(order.SugarLevel));
 
             
             //Console.WriteLine(order.NeedsStick());
