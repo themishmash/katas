@@ -100,11 +100,13 @@ namespace coffeeMachine
                 Console.WriteLine("How much money do you have?");
                 string moneyInput = Console.ReadLine();
 
-                decimal moneyAmount;
-                if (decimal.TryParse(moneyInput, out moneyAmount))
+                decimal moneyDecimal;
+                if (decimal.TryParse(moneyInput, out moneyDecimal))
                 {
-                    ordermachine.GetBalance(order.Drink.Price, moneyAmount);
+                    ordermachine.GetBalance(order.Drink.Price, moneyDecimal);
                 }
+
+                //Console.WriteLine(ordermachine.GetBalance(order.Drink.Price, moneyDecimal));
 
 
                 //var balance = ordermachine.GetBalance(order.Price, moneyAmount);
@@ -144,8 +146,8 @@ namespace coffeeMachine
         {
             Console.Write(PrintDrinkLetter(order.Drink.DrinkType));
             Console.Write(PrintExtraHotLetter(order.IsExtraHot));
-            Console.WriteLine(PrintSugar(order.SugarLevel));
-            Console.WriteLine(PrintBalanceMsg(order.AmountPaid));
+            Console.Write(PrintSugar(order.SugarLevel));
+            Console.WriteLine(PrintBalanceMsg(order.Drink.Price, order.AmountPaid));
 
             
             //Console.WriteLine(order.NeedsStick());
@@ -198,9 +200,9 @@ namespace coffeeMachine
 
         }
 
-        private static string PrintBalanceMsg(decimal getBalance)
+        private static string PrintBalanceMsg(decimal price, decimal money)
         {
-            return getBalance < 0 ? ($":You need to pay another {System.Math.Abs(getBalance)} + Euros") : string.Empty;
+            return (money - price) < 0 ? ($":You need to pay another {System.Math.Abs(money - price)} Euros") : string.Empty;
         }
         
 
