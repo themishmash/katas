@@ -15,7 +15,6 @@ namespace coffeeMachine
         
     {
 
-       
         //best practise to have private and public
         //private propertie for class use underscore. 
 
@@ -28,8 +27,6 @@ namespace coffeeMachine
         public bool CanBeExtraHot { get; protected set; }
      
         public decimal Price { get; protected set; }
-
-
 
 
     }

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace coffeeMachine
 {
-    public class Coffee : Drink
+    public class Coffee : Drink 
     {
         public Coffee ()
         {

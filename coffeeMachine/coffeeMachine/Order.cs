@@ -3,8 +3,8 @@ namespace coffeeMachine
 {
     public class Order
     {
-        public decimal DrinkPrice { get; set; }
-        public DrinkType DrinkType { get; set; }
+        public Drink Drink { get; set; }
+        
         public int SugarLevel { get; set; }
         public bool IsExtraHot { get; set; }
         public decimal AmountPaid { get; set; }
