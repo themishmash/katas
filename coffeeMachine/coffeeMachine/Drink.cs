@@ -1,6 +1,7 @@
 ﻿//First iteration - Making drinks
 //In this iteration, your task is to implement the logic (starting from a simple class) that translates orders from customers of the coffee machine to the drink maker.Your code will use the drink maker protocol(see below) to send commands to the drink maker.
 
+using System;
 using System.Collections.Generic;
 
 namespace coffeeMachine
@@ -11,7 +12,7 @@ namespace coffeeMachine
     //This is the actual drink class. Represents beverage. Doesn't show to user
 
  
-    public class Drink
+    public class Drink : Object
         
     {
 
@@ -20,7 +21,14 @@ namespace coffeeMachine
 
         //Properties
         //protected set allows things to inherit from it to set
+        public Drink ()
+        {
+            
+        }
+
         public DrinkType DrinkType { get; protected set; }
+        
+        public string DrinkName { get; protected set; }
 
         public bool CanHaveSugar { get; protected set; }
 

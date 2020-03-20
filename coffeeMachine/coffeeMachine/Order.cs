@@ -17,6 +17,10 @@ namespace coffeeMachine
             return SugarLevel > 0;
         }
 
+        public void AddSugar(int sugar)
+        {
+            this.SugarLevel = sugar;
+        }
 
         public Order()
         {

@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{0B18CF0B-A2DC-4E99-AA18-D1E350D55512}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="ABCKata/Solution.cs">
     <Files>
-      <File FileName="ABCKata/Program.cs" Line="9" Column="12" />
-      <File FileName="ABCKata/Solution.cs" Line="181" Column="14" />
+      <File FileName="ABCKata/Solution.cs" Line="67" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
