@@ -20,6 +20,10 @@ namespace coffeeMachine
 
 // TODO: need a list variable to remember all created orders and method to retrieve this list. Will need to create this list as part of the constructor. 
 
+        public List<Drink> DrinkList = new List<Drink>();
+
+ 
+
         //Method. In this method- calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
 
@@ -29,6 +33,8 @@ namespace coffeeMachine
 
             
             Drink drink = null;
+
+            
             //instantiate drink first
             
             switch (drinkType)
@@ -51,7 +57,6 @@ namespace coffeeMachine
 
             var order = CreateOrder(drink);
 
-           
             return order;
             
         }
@@ -82,12 +87,16 @@ namespace coffeeMachine
 
 //TODO Add new order to list of orders here
 
+            // report.TotalOrder++;
+            DrinkList.Add(drink);
+            
+
             return order;
           
 
         }
-        
 
+    
 
     }
 

@@ -40,6 +40,7 @@ namespace coffeeMachine
             //Initialize new OrderMachine object. This has to be outside of the while loop otherwise it will keep resetting the cost and number of drinks to 0.
             //so only one ordermachine 
             var ordermachine = new OrderMachine();
+            var reportgenerator = new ReportGenerator();
 
             while (true)
             {
@@ -51,7 +52,10 @@ namespace coffeeMachine
                 Console.WriteLine("2. Tea");
                 Console.WriteLine("3. Chocolate");
                 Console.WriteLine("4. Orange Juice");
+                Console.WriteLine("5. Reports");
+               
                 string drinkInput = Console.ReadLine();
+             
 
                 int drinkSelection;
                 if (!Int32.TryParse(drinkInput, out drinkSelection))
@@ -61,55 +65,72 @@ namespace coffeeMachine
 
                 DrinkType drinkType = (DrinkType)(drinkSelection) - 1;
 
-                //giving properties to new object
-                var order = ordermachine.StartOrder(drinkType);
-                
-                
-                if (order.Drink.CanHaveSugar)
+                if (drinkSelection != 5)
                 {
-                    Console.WriteLine("How many sugars would you like?");
-                    string sugarInput = Console.ReadLine();
+                    //giving properties to new object
+                    var order = ordermachine.StartOrder(drinkType);
+                    //var reportMessage = reportgenerator.MakeReport(report);
 
-                    int sugarInt = 0;
-                    if (Int32.TryParse(sugarInput, out sugarInt))
-                    {
-                        ordermachine.AddSugar(order, sugarInt);
-                        order.AddSugar(sugarInt); //this is the same as above
-                    }
-                }
-
-
-                ////Only asks about extra hot if it is c, t, hc
-                if (order.Drink.CanBeExtraHot)
-                {
-                   
-                    Console.WriteLine("Would you like it to be extra hot? Y/N");
-                    string yesOrNo = Console.ReadLine().ToUpper();
-
-                    if (yesOrNo == "Y")
-                    {
-                        ordermachine.ExtraHot(order, true);
-                    }
-                   
-                }
-                
                
+                
+                    if (order.Drink.CanHaveSugar)
+                    {
+                        Console.WriteLine("How many sugars would you like?");
+                        string sugarInput = Console.ReadLine();
+
+                        int sugarInt = 0;
+                        if (Int32.TryParse(sugarInput, out sugarInt))
+                        {
+                            ordermachine.AddSugar(order, sugarInt);
+                            order.AddSugar(sugarInt); //this is the same as above
+                        }
+                    }
 
 
+                    ////Only asks about extra hot if it is c, t, hc
+                    if (order.Drink.CanBeExtraHot)
+                    {
+                   
+                        Console.WriteLine("Would you like it to be extra hot? Y/N");
+                        string yesOrNo = Console.ReadLine().ToUpper();
 
-                Console.WriteLine($"That will be {order.Drink.Price}");
-                Console.WriteLine("How much money do you have?");
-                string moneyInput = Console.ReadLine();
+                        if (yesOrNo == "Y")
+                        {
+                            ordermachine.ExtraHot(order, true);
+                        }
+                   
+                    }
+                
 
-                decimal moneyDecimal;
-                if (decimal.TryParse(moneyInput, out moneyDecimal))
-                {
-                    ordermachine.CustomerPays(order, moneyDecimal);
-                }
+                    Console.WriteLine($"That will be {order.Drink.Price}");
+                    Console.WriteLine("How much money do you have?");
+                    string moneyInput = Console.ReadLine();
+
+                    decimal moneyDecimal;
+                    if (decimal.TryParse(moneyInput, out moneyDecimal))
+                    {
+                        ordermachine.CustomerPays(order, moneyDecimal);
+                    }
+
                     
+                    PrintMessage(order);
+                    
+                    
+                    
+                    //Console.WriteLine("______________________________");
+                }
 
-                PrintMessage(order);
-                //Console.WriteLine("______________________________");
+                
+                if (drinkSelection == 5)
+                {
+                   
+                    
+                    PrintReport(reportgenerator, ordermachine);
+                    
+                    
+                }
+
+               
 
             }
         }
@@ -118,8 +139,8 @@ namespace coffeeMachine
         private static void PrintMessage (Order order)
         {
             Console.Write(PrintDrinkLetter(order.Drink.DrinkType));
-            Console.Write(PrintExtraHotLetter(order.IsExtraHot));
-            Console.Write(PrintSugar(order.SugarLevel));
+            Console.Write($"{PrintExtraHotLetter(order.IsExtraHot)}:");
+            Console.Write($"{PrintSugar(order.SugarLevel)}");
             Console.WriteLine(PrintBalanceMsg(order.Drink.Price, order.AmountPaid));
 
             
@@ -154,7 +175,7 @@ namespace coffeeMachine
 
         private static string PrintExtraHotLetter(bool extraHot)
         {
-            return extraHot ? "h" : string.Empty;
+            return extraHot ? "h" :string.Empty;
 
         }
 
@@ -162,7 +183,7 @@ namespace coffeeMachine
 
         private static string PrintSugar(int sugarLevel) //change to Get instead of print
         {
-            return sugarLevel > 0 ? ($" :{ sugarLevel.ToString()}:0") : "::";
+            return sugarLevel > 0 ? ($"{sugarLevel.ToString()}:0") : "::";
 
         }
 
@@ -171,7 +192,8 @@ namespace coffeeMachine
             return (money - price) < 0 ? ($":You need to pay another {System.Math.Abs(money - price)} Euros") : string.Empty;
         }
 
-        private static void PrintReport(OrderMachine ordermachine)
+        // private static void PrintReport(OrderMachine ordermachine)
+        private static void PrintReport(ReportGenerator reportgenerator, OrderMachine ordermachine)
         {
             /*
              * 1. create new object of report generator (this will be a class you will make)
@@ -182,6 +204,13 @@ namespace coffeeMachine
              */
 
             Console.WriteLine("This is your report");
+
+            Console.WriteLine($"The drinks so far are: {reportgenerator.PrintAllDrinks(ordermachine.DrinkList)}");
+            
+            Console.WriteLine($"Total Price: {reportgenerator.PrintDrinksTotalPrice(ordermachine.DrinkList)}");
+
+            Console.WriteLine($"Total orders: {reportgenerator.PrintDrinksTotalOrder(ordermachine.DrinkList)}");
+            
         }
 
 
