@@ -22,7 +22,9 @@ namespace coffeeMachine
 
         public List<Drink> DrinkList = new List<Drink>();
 
- 
+        //if want to keep track of stock level:
+        //dictionary of each drink as key - value is left how many in stock. 
+        //in constructor - create dictionary with every drink level in it. 
 
         //Method. In this method- calling DrinkType from DrinkType File)
         //can have more logic later on by putting this PlaceOrder method here
@@ -82,19 +84,17 @@ namespace coffeeMachine
         private Order CreateOrder(Drink drink)
         {
 
-            var order = new Order();
-            order.Drink = drink;
+            var order = new Order(drink);
+            //order.Drink = drink;
 
 //TODO Add new order to list of orders here
 
-            // report.TotalOrder++;
             DrinkList.Add(drink);
-            
-
             return order;
-          
 
         }
+        
+        
 
     
 

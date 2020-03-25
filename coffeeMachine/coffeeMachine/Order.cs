@@ -3,7 +3,12 @@ namespace coffeeMachine
 {
     public class Order
     {
-        public Drink Drink { get; set; }
+        public Order(Drink drink)
+        {
+            Drink = drink;
+        }
+
+        public Drink Drink { get; }
         
         public int SugarLevel { get; set; }
         public bool IsExtraHot { get; set; }

@@ -29,14 +29,40 @@ namespace coffeeMachine
 
         
 
-        public decimal PrintDrinksTotalPrice(List<Drink> DrinkList)
+        public decimal PrintDrinksTotalPrice(List<Drink> drinks)
         {
-            return DrinkList.Sum(drink => drink.Price);
+            return drinks.Sum(drink => drink.Price);
         }
 
-        public int PrintDrinksTotalOrder(List<Drink> DrinkList)
+        public int PrintDrinksTotalOrder(List<Drink> drinks)
         {
-            return DrinkList.Count();
+            return drinks.Count();
+        }
+
+        public int PrintCoffeeTotal(List<Drink> drinks)
+        {
+            foreach (Drink drink in drinks)
+            {
+                if (drink.DrinkType == DrinkType.Coffee)
+                {
+                    return drinks.Count();
+                }
+            }
+
+            return 0;
+        }
+
+        public decimal PrintCoffeeTotalPrice(List<Drink> drinks)
+        {
+            foreach (Drink drink in drinks)
+            {
+                if (drink.DrinkType == DrinkType.Coffee)
+                {
+                    return drinks.Sum(drink => drink.Price);
+                }
+            }
+
+            return 0;
         }
     }
 }

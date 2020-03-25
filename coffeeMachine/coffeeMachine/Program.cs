@@ -211,6 +211,8 @@ namespace coffeeMachine
 
             Console.WriteLine($"Total orders: {reportgenerator.PrintDrinksTotalOrder(ordermachine.DrinkList)}");
             
+            Console.WriteLine($"Total coffee orders: {reportgenerator.PrintCoffeeTotal(ordermachine.DrinkList)}");
+            Console.WriteLine($"Total coffee price: {reportgenerator.PrintCoffeeTotalPrice(ordermachine.DrinkList)}");
         }
 
 
